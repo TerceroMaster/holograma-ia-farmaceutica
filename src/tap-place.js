@@ -23,7 +23,8 @@ export const tapPlaceComponent = {
       const randomYRotation = Math.random() * 360
       newElement.setAttribute('rotation', `0 ${randomYRotation} 0`)
 
-      const randomScale = Math.floor(Math.random() * (Math.floor(this.data.max) - Math.ceil(this.data.min)) + Math.ceil(this.data.min))
+      // Tamaño fijo realista (0.4 * 4m de altura original = 1.6m de alto)
+      const fixedScale = 0.4
 
       newElement.setAttribute('visible', 'false')
       newElement.setAttribute('scale', '0.0001 0.0001 0.0001')
@@ -58,7 +59,7 @@ export const tapPlaceComponent = {
       newElement.setAttribute('visible', 'true')
       newElement.setAttribute('animation', {
         property: 'scale',
-        to: `${randomScale} ${randomScale} ${randomScale}`,
+        to: `${fixedScale} ${fixedScale} ${fixedScale}`,
         easing: 'easeOutElastic',
         dur: 800,
       })
