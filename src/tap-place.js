@@ -13,6 +13,10 @@ export const tapPlaceComponent = {
       // Dismiss the prompt text.
       this.prompt.style.display = 'none'
       
+      // Mostrar la interfaz Premium Glassmorphism
+      document.getElementById('chatContainer').style.display = 'flex'
+      document.getElementById('menuContainer').style.display = 'flex'
+      
       // Create new entity for the new object
       const newElement = document.createElement('a-entity')
 
@@ -23,8 +27,8 @@ export const tapPlaceComponent = {
       const randomYRotation = Math.random() * 360
       newElement.setAttribute('rotation', `0 ${randomYRotation} 0`)
 
-      // Tamaño fijo realista (0.4 * 4m de altura original = 1.6m de alto)
-      const fixedScale = 0.4
+      // Tamaño fijo realista (5 * 4m de altura original = 20m, pero ajustado a la escala del cuarto)
+      const fixedScale = 5
 
       newElement.setAttribute('visible', 'false')
       newElement.setAttribute('scale', '0.0001 0.0001 0.0001')

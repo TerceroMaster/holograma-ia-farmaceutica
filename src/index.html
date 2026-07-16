@@ -27,9 +27,39 @@
 <!-- Copyright (c) 2022 8th Wall, Inc. -->
 <!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
 
-<div class="over">
-  <span id="promptText">Tap To Place Model</span>
+<div class="over" id="ui-container">
+  <span id="promptText">Toca el suelo para invocar a la IA Farmacéutica</span>
+  
+  <div class="glass-chat" id="chatContainer" style="display: none;">
+    <div class="chat-header">
+      <div class="status-dot"></div>
+      Asistente Farmacéutica
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message system-msg">Hola, ¿en qué te puedo ayudar hoy con tus medicamentos?</div>
+    </div>
+  </div>
+
+  <div class="glass-menu" id="menuContainer" style="display: none;">
+    <button class="glass-btn" onclick="addMsg('¿Cuál es la dosis de Paracetamol?')">💊 Dosis</button>
+    <button class="glass-btn" onclick="addMsg('Necesito ver mi receta médica.')">📝 Receta</button>
+    <button class="glass-btn highlight-btn" onclick="addMsg('Hablar...')">🎙️ Hablar</button>
+  </div>
 </div>
+
+<script>
+  function addMsg(text) {
+    const chat = document.getElementById('chatMessages');
+    chat.innerHTML += `<div class="message user-msg">${text}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+    
+    // Simulate AI response (temporary static demo)
+    setTimeout(() => {
+      chat.innerHTML += `<div class="message system-msg">Procesando consulta... (IA Desactivada por ahora)</div>`;
+      chat.scrollTop = chat.scrollHeight;
+    }, 1000);
+  }
+</script>
 
 <!-- Add the tap-place component to the scene so it has an effect -->
 <a-scene

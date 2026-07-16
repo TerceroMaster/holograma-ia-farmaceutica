@@ -19,4 +19,116 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
+  transition: opacity 0.5s ease;
 }
+
+/* Glassmorphism Chat */
+.glass-chat {
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
+  right: 5vw;
+  height: 40vh;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.chat-header {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00ffaa;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #00ffaa;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 80%;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.system-msg {
+  background: rgba(0, 255, 170, 0.2);
+  color: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.user-msg {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+/* Glassmorphism Menu */
+.glass-menu {
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  right: 5vw;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: auto;
+  gap: 10px;
+}
+
+.glass-btn {
+  flex: 1;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  color: white;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.glass-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
+}
+
+.highlight-btn {
+  background: rgba(0, 255, 170, 0.25);
+  border-color: rgba(0, 255, 170, 0.5);
+}
+
