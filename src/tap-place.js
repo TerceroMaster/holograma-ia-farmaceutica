@@ -48,7 +48,7 @@ export const tapPlaceComponent = {
       })
 
       // Holographic Additive Material
-      avatarPlane.setAttribute('material', 'src: #avatarTex; transparent: true; blending: additive; depthWrite: false; side: double')
+      avatarPlane.setAttribute('material', 'shader: flat; src: #avatarTex; transparent: true; blending: additive; depthWrite: false; side: double')
       
       newElement.appendChild(avatarPlane)
       
