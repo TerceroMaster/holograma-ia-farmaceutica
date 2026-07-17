@@ -109,6 +109,11 @@ const config = {
       filename: 'pirmct-trofeo.html',
       inject: false,
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(srcPath, 'holoflyer.html'),
+      filename: 'holoflyer.html',
+      inject: false,
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
