@@ -58,6 +58,42 @@
       </div>
     </section>
 
+    <section id="sectores" class="sectors-section">
+      <div class="sectors-header">
+        <h2>Aplicaciones que Transforman Industrias</h2>
+        <p>Los hologramas interactivos no son solo para entretenimiento; son herramientas poderosas de comunicación, ventas y enseñanza.</p>
+      </div>
+
+      <div class="sectors-container">
+        <!-- Salud -->
+        <div class="sector-card fade-up">
+          <div class="sector-icon">⚕️</div>
+          <div class="sector-content">
+            <h3>Sector Salud</h3>
+            <p>Desde asistentes farmacéuticas que guían a los pacientes sobre el uso de medicamentos, hasta visualización holográfica de órganos 3D para estudiantes de medicina.</p>
+          </div>
+        </div>
+
+        <!-- Educación -->
+        <div class="sector-card fade-up">
+          <div class="sector-icon">🎓</div>
+          <div class="sector-content">
+            <h3>Educación</h3>
+            <p>El aprendizaje inmersivo acelera la retención de información. Maestros holográficos y simulaciones históricas directamente en el escritorio del alumno.</p>
+          </div>
+        </div>
+
+        <!-- Integracion Web -->
+        <div class="sector-card fade-up">
+          <div class="sector-icon">💻</div>
+          <div class="sector-content">
+            <h3>Integración Web B2B</h3>
+            <p>Incrusta avatares holográficos en cualquier página web corporativa o e-commerce. Aumenta las conversiones dejando que la IA presente tus productos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="demos" class="demos-section">
       <div class="demos-header">
         <h2>Prueba Gratis Nuestros Escenarios</h2>
@@ -108,5 +144,27 @@
   <footer>
     <p>© 2026 Desarrollo de Hologramas IA. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Animaciones al hacer scroll (Scroll Animations)
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
