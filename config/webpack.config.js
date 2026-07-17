@@ -89,6 +89,26 @@ const config = {
       filename: 'farmaceutica.html',
       inject: false,
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(srcPath, 'pirmct-contenedor.html'),
+      filename: 'pirmct-contenedor.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(srcPath, 'pirmct-rescate.html'),
+      filename: 'pirmct-rescate.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(srcPath, 'pirmct-detective.html'),
+      filename: 'pirmct-detective.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(srcPath, 'pirmct-trofeo.html'),
+      filename: 'pirmct-trofeo.html',
+      inject: false,
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {

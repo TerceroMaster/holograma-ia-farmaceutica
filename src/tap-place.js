@@ -4,6 +4,11 @@ export const tapPlaceComponent = {
   schema: {
     min: {default: 6},
     max: {default: 10},
+    imageId: {type: 'string', default: '#avatarTex'},
+    assetWidth: {type: 'number', default: 2},
+    assetHeight: {type: 'number', default: 4},
+    baseScale: {type: 'number', default: 5},
+    floating: {type: 'boolean', default: true},
   },
   init() {
     const ground = document.getElementById('ground')
@@ -23,8 +28,8 @@ export const tapPlaceComponent = {
       const randomYRotation = Math.random() * 360
       newElement.setAttribute('rotation', `0 ${randomYRotation} 0`)
 
-      // Tamaño fijo realista (5 * 4m de altura original = 20m, pero ajustado a la escala del cuarto)
-      const fixedScale = 5
+      // Tamaño inicial realista tomado del schema
+      const fixedScale = this.data.baseScale
 
       newElement.setAttribute('visible', 'false')
       newElement.setAttribute('scale', '0.0001 0.0001 0.0001')
@@ -44,21 +49,25 @@ export const tapPlaceComponent = {
 
       // Holographic Avatar Plane
       const avatarPlane = document.createElement('a-plane')
-      avatarPlane.setAttribute('width', '2')
-      avatarPlane.setAttribute('height', '4') // Make it tall like a human
-      avatarPlane.setAttribute('position', '0 2 0') // Lift it up
-      // Floating animation
-      avatarPlane.setAttribute('animation__pos', {
-        property: 'position',
-        to: '0 2.2 0',
-        dir: 'alternate',
-        loop: 'true',
-        dur: 2000,
-        easing: 'easeInOutSine'
-      })
+      avatarPlane.setAttribute('width', this.data.assetWidth)
+      avatarPlane.setAttribute('height', this.data.assetHeight) 
+      avatarPlane.setAttribute('position', `0 ${this.data.assetHeight/2} 0`) // Lift it up
+      
+      if (this.data.floating) {
+        // Floating animation
+        avatarPlane.setAttribute('animation__pos', {
+          property: 'position',
+          to: `0 ${(this.data.assetHeight/2) + 0.2} 0`,
+          dir: 'alternate',
+          loop: 'true',
+          dur: 2000,
+          easing: 'easeInOutSine'
+        })
+      }
 
       // Holographic Additive Material
-      avatarPlane.setAttribute('material', 'shader: flat; src: #avatarTex; transparent: true; blending: additive; depthWrite: false; side: double')
+      avatarPlane.setAttribute('material', `shader: flat; src: ${this.data.imageId}; transparent: true; blending: additive; depthWrite: false; side: double`)
+
       
       newElement.appendChild(avatarPlane)
       

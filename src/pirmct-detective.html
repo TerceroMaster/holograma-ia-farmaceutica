@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detective Ecofarma - PIRMCT</title>
+  <script crossorigin="anonymous" src="//cdn.8thwall.com/web/aframe/8frame-1.5.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js" crossorigin="anonymous" async="true" data-preload-chunks="slam"></script>
+</head>
+<body>
+<script src="bundle.js"></script>
+
+<div class="over" id="ui-container">
+  <span id="promptText" style="background: rgba(56, 189, 248, 0.9);">Toca el suelo para investigar la escena del crimen</span>
+  <a href="/" style="position: absolute; top: 20px; left: 20px; padding: 10px 20px; background: rgba(0,0,0,0.5); color: white; text-decoration: none; border-radius: 10px; pointer-events: auto; backdrop-filter: blur(5px);">← Volver</a>
+</div>
+
+<a-scene
+  xrextras-gesture-detector
+  tap-place="imageId: #rioTex; assetWidth: 6; assetHeight: 4; baseScale: 3; floating: false"
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  renderer="colorManagement:true"
+  xrweb>
+
+  <a-assets>
+    <img id="rioTex" src="assets/rio.png">
+  </a-assets>
+
+  <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;"></a-camera>
+  <a-light type="directional" intensity="0.8" position="1 4.3 2.5"></a-light>
+  <a-light type="ambient" intensity="0.5"></a-light>
+  
+  <a-box id="ground" class="cantap" scale="1000 2 1000" position="0 -0.99 0" material="shader: shadow; transparent: true; opacity: 0.4"></a-box>
+</a-scene>
+</body>
+</html>
