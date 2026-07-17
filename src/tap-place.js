@@ -29,6 +29,15 @@ export const tapPlaceComponent = {
       newElement.setAttribute('visible', 'false')
       newElement.setAttribute('scale', '0.0001 0.0001 0.0001')
 
+      // Agregar interactividad con los dedos (Zoom / Escala y Rotación)
+      newElement.classList.add('cantap')
+      newElement.setAttribute('xrextras-hold-drag', '')
+      newElement.setAttribute('xrextras-two-finger-rotate', '')
+      newElement.setAttribute('xrextras-pinch-scale', {
+        min: 0.5,
+        max: 20
+      })
+
       newElement.setAttribute('shadow', {
         receive: false,
       })
