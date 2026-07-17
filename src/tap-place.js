@@ -13,10 +13,6 @@ export const tapPlaceComponent = {
       // Dismiss the prompt text.
       this.prompt.style.display = 'none'
       
-      // Mostrar la interfaz Premium Glassmorphism
-      document.getElementById('chatContainer').style.display = 'flex'
-      document.getElementById('menuContainer').style.display = 'flex'
-      
       // Create new entity for the new object
       const newElement = document.createElement('a-entity')
 

@@ -84,6 +84,11 @@ const config = {
       filename: 'index.html',
       inject: false,
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(srcPath, 'farmaceutica.html'),
+      filename: 'farmaceutica.html',
+      inject: false,
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {

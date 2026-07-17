@@ -1,128 +1,112 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>A-Frame: Tap to Place Ground</title>
-  <meta itemprop="name" content="A-Frame: Tap to Place Ground">
-  <meta name="twitter:title" content="A-Frame: Tap to Place Ground">
-  <meta property="og:title" content="A-Frame: Tap to Place Ground">
-  <meta property="og:site_name" content="A-Frame: Tap to Place Ground">
-  <meta name="description" content="This example allows the user to grow cacti 🌵  by tapping or clicking the ground. Showcases raycasting, spawning objects, and importing a 3D model.">
-  <meta itemprop="description" content="This example allows the user to grow cacti 🌵  by tapping or clicking the ground. Showcases raycasting, spawning objects, and importing a 3D model.">
-  <meta property="og:description" content="This example allows the user to grow cacti 🌵  by tapping or clicking the ground. Showcases raycasting, spawning objects, and importing a 3D model.">
-  <meta name="twitter:description" content="This example allows the user to grow cacti 🌵  by tapping or clicking the ground. Showcases raycasting, spawning objects, and importing a 3D model.">
-  <meta property="og:image" content="https://8thwall.org/aframe-world-effects/assets/preview.gif"/>
-
-  <script crossorigin="anonymous" src="//cdn.8thwall.com/web/aframe/8frame-1.5.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js" crossorigin="anonymous" async="true" data-preload-chunks="slam"></script>
+  <title>Desarrollo de Hologramas con Inteligencia Artificial</title>
+  <link rel="stylesheet" href="assets/landing.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-<script src="bundle.js"></script>
-<!-- Copyright (c) 2022 8th Wall, Inc. -->
-<!-- body.html is optional; elements will be added to your html body after app.js is loaded. -->
-
-<div class="over" id="ui-container">
-  <span id="promptText">Toca el suelo para invocar a la IA Farmacéutica</span>
   
-  <div class="glass-chat" id="chatContainer" style="display: none;">
-    <div class="chat-header">
-      <div class="status-dot"></div>
-      Asistente Farmacéutica
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="message system-msg">Hola, ¿en qué te puedo ayudar hoy con tus medicamentos?</div>
-    </div>
-  </div>
+  <header class="navbar">
+    <div class="logo">HoloTech IA</div>
+    <nav>
+      <a href="#ventajas">Ventajas</a>
+      <a href="#casos">Casos de Uso</a>
+      <a href="#demos" class="btn-primary-small">Prueba Gratis</a>
+    </nav>
+  </header>
 
-  <div class="glass-menu" id="menuContainer" style="display: none;">
-    <button class="glass-btn" onclick="addMsg('¿Cuál es la dosis de Paracetamol?')">💊 Dosis</button>
-    <button class="glass-btn" onclick="addMsg('Necesito ver mi receta médica.')">📝 Receta</button>
-    <button class="glass-btn highlight-btn" onclick="addMsg('Hablar...')">🎙️ Hablar</button>
-  </div>
-</div>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">Nueva Tecnología WebAR</div>
+        <h1>El Futuro de la Interacción con <span>Hologramas de Inteligencia Artificial</span></h1>
+        <p>Crea experiencias inmersivas directamente desde el navegador web, sin necesidad de descargar aplicaciones. Conecta avatares holográficos con IA avanzada para tus clientes.</p>
+        <div class="hero-buttons">
+          <a href="#demos" class="btn-primary">Ver Demostraciones</a>
+          <a href="#ventajas" class="btn-secondary">Saber Más</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glow-orb"></div>
+        <div class="glass-card mockup">
+           <img src="assets/preview.gif" alt="Holograma Demo" class="mockup-img">
+        </div>
+      </div>
+    </section>
 
-<script>
-  function addMsg(text) {
-    const chat = document.getElementById('chatMessages');
-    chat.innerHTML += `<div class="message user-msg">${text}</div>`;
-    chat.scrollTop = chat.scrollHeight;
-    
-    // Simulate AI response (temporary static demo)
-    setTimeout(() => {
-      chat.innerHTML += `<div class="message system-msg">Procesando consulta... (IA Desactivada por ahora)</div>`;
-      chat.scrollTop = chat.scrollHeight;
-    }, 1000);
-  }
-</script>
+    <section id="ventajas" class="features">
+      <h2>¿Por qué Hologramas con IA?</h2>
+      <div class="grid">
+        <div class="feature-card">
+          <div class="icon">🌐</div>
+          <h3>Realidad Aumentada Web (WebAR)</h3>
+          <p>Accesible instantáneamente. Tus usuarios no necesitan instalar nada, solo abren un enlace en su celular y el holograma aparece en su entorno real.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🧠</div>
+          <h3>Inteligencia Artificial Integrada</h3>
+          <p>Los avatares no son simples animaciones. Están conectados a cerebros de IA como ChatGPT para responder en tiempo real con voz humana.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🚀</div>
+          <h3>Alto Impacto Visual</h3>
+          <p>Diseño de interfaz vanguardista y estética futurista que capta la atención del cliente y posiciona tu marca como líder en innovación.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- Add the tap-place component to the scene so it has an effect -->
-<a-scene
-  tap-place
-  landing-page
-  xrextras-loading
-  xrextras-runtime-error
-  renderer="colorManagement:true"
-  xrweb="
-    allowedDevices: any;
-    defaultEnvironmentFogIntensity: 0.5; 
-    defaultEnvironmentFloorTexture: #groundTex; 
-    defaultEnvironmentFloorColor: #FFF;
-    defaultEnvironmentSkyBottomColor: #B4C4CC; 
-    defaultEnvironmentSkyTopColor: #5ac8fa;
-    defaultEnvironmentSkyGradientStrength: 0.5;">
+    <section id="demos" class="demos-section">
+      <div class="demos-header">
+        <h2>Prueba Gratis Nuestros Escenarios</h2>
+        <p>Selecciona una de las demostraciones interactivas a continuación para probar la Realidad Aumentada directamente en tu celular.</p>
+      </div>
 
-  <!-- We can define assets here to be loaded when A-Frame initializes -->
-  <a-assets>
-    <img id="groundTex" src="assets/sand.jpg">
-    <img id="avatarTex" src="assets/avatar.png">
-  </a-assets>
+      <div class="demos-grid">
+        <!-- Farmaceutica Card -->
+        <a href="farmaceutica.html" class="demo-card active-demo">
+          <div class="demo-image pharmacy-bg">
+            <span class="demo-badge">En Vivo</span>
+          </div>
+          <div class="demo-info">
+            <h3>Farmacéutica Holográfica</h3>
+            <p>Asistente médica virtual capaz de mostrar su catálogo y dar asesoría farmacéutica directamente en tu consultorio o farmacia.</p>
+            <span class="demo-link">Abrir Experiencia AR →</span>
+          </div>
+        </a>
 
-  <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
-  <a-camera
-    id="camera"
-    position="0 8 8"
-    raycaster="objects: .cantap"
-    cursor="
-      fuse: false;
-      rayOrigin: mouse;">
-  </a-camera>
+        <!-- Placeholder Arquitectura -->
+        <div class="demo-card disabled-demo">
+          <div class="demo-image arch-bg">
+            <span class="demo-badge upcoming">Próximamente</span>
+          </div>
+          <div class="demo-info">
+            <h3>Arquitecto Virtual</h3>
+            <p>Proyecta edificios a escala real en un terreno vacío, guiado por un ingeniero holográfico.</p>
+            <span class="demo-link">No disponible</span>
+          </div>
+        </div>
 
-  <a-entity
-    light="
-      type: directional;
-      intensity: 0.8;
-      castShadow: true;
-      shadowMapHeight:2048;
-      shadowMapWidth:2048;
-      shadowCameraTop: 40;
-      shadowCameraBottom: -40;
-      shadowCameraRight: 40;
-      shadowCameraLeft: -40;
-      target: #camera"
-    xrextras-attach="target: camera; offset: 8 15 4"
-    position="1 4.3 2.5"
-    shadow>
-  </a-entity>
+        <!-- Placeholder Retail -->
+        <div class="demo-card disabled-demo">
+          <div class="demo-image retail-bg">
+            <span class="demo-badge upcoming">Próximamente</span>
+          </div>
+          <div class="demo-info">
+            <h3>Retail & Ecommerce</h3>
+            <p>Prueba ropa o visualiza productos en tu habitación antes de comprarlos con un asistente de ventas AI.</p>
+            <span class="demo-link">No disponible</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <a-light type="ambient" intensity="0.5"></a-light>
+  </main>
 
-  <!-- Adding the cantap class allows the ground to be clicked -->
-  <a-box
-    id="ground"
-    class="cantap"
-    scale="1000 2 1000"
-    position="0 -0.99 0"
-    material="shader: shadow; transparent: true; opacity: 0.4"
-    shadow>
-  </a-box>
-</a-scene>
-
+  <footer>
+    <p>© 2026 Desarrollo de Hologramas IA. Todos los derechos reservados.</p>
+  </footer>
 </body>
-
 </html>
